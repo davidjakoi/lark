@@ -1,0 +1,9 @@
+<div class="wrapper" *ngIf="!isSlideShow">
+    <img *ngFor="let gallery of images[index], let i=index" class="galleryImages" src="../../../img/gallery{{index}}/{{i}}.jpg" alt="" (click)="openImage(i)">
+</div>
+<div class="slideShow" *ngIf="isSlideShow">
+    <i class="fas fa-arrow-left" (click)="previous(i)" *ngIf="clickedIndex>0"></i>
+    <img src="../../../img/gallery{{index}}/{{clickedIndex}}.jpg" alt="" class="slideShowImage">
+    <i class="fas fa-arrow-right" (click)="next(i)" *ngIf="clickedIndex<(images[index].length-2)"></i>
+    <button class="closeButton" (click)="close()">X</button>
+</div>

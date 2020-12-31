@@ -1,0 +1,79 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}
+
+div {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+img {
+  width: 12%;
+  height: auto;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  color: #ba2c2c;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+h2 {
+  margin-left: 40px;
+  margin-right: 40px;
+  text-transform: uppercase;
+  cursor: pointer;
+  justify-content: center;
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 25px;
+}
+
+h2:hover{
+  text-decoration: none;
+}
+
+h2:focus,h2:active{
+  outline: none;
+}
+
+img:focus,h2:active{
+  outline: none;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.isActive {
+  color: #2b17b3;
+}
+
+.logo {
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    width: 60%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  img {
+    width: 60%;
+    height: auto;
+  }
+
+  h2 {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}

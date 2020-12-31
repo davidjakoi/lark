@@ -1,0 +1,67 @@
+<div class="wrapper">
+  <div ng-show="show" class="videoColumn" [ngStyle]="{'height': hiddenHeight, 'transition': 'height 1s'}">
+    <iframe width="100%" [ngStyle]="{'max-height': hiddenHeight ,'transition': 'max-height 1s'}" [src]="videoUrl"
+      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <i class="fa fa-times" [ngStyle]="{'opacity': hiddenButton}" (click)="showVideo($event, null)"></i>
+  </div>
+  <div class="columns" [ngStyle]="{'transform': translateValue, 'transition': timer}" *ngIf="folderId === null">
+    <div class="column">
+      <img src="../../img/20.jpg" alt="" (click)="showVideo($event, 0)">
+      <img src="../../img/20209.jpg" alt="" (click)="showVideo($event, 39)">
+      <img src="../../img/20204.jpg" alt="" (click)="showVideo($event, 18)">
+      <img src="../../img/23.jpg" alt="" (click)="showVideo($event, 1)">
+      <img src="../../img/19.jpg" alt="" (click)="showVideo($event, 2)">
+      <img src="../../img/6.jpg" alt="" (click)="showVideo($event, 4)">
+    </div>
+    <div class="column">
+      <img src="../../img/weddinggifv3.gif" alt="" (click)="openFolder(0)">
+      <img src="../../img/20202.jpg" alt="" (click)="showVideo($event, 6)">
+      <img src="../../img/lark2.jpg" alt="" (click)="showVideo($event, 7)">
+      <img src="../../img/lark3.jpg" alt="" (click)="showVideo($event, 8)">
+      <img src="../../img/lark8.jpg" alt="" routerLink="/gallery/2">
+      <img src="../../img/2.jpg" alt="" (click)="showVideo($event, 16)">
+    </div>
+    <div class="column">
+      <img src="../../img/lark5.jpg" alt="" (click)="showVideo($event, 9)">
+      <img src="../../img/21.jpg" alt="" (click)="showVideo($event, 17)">
+      <img src="../../img/11.jpg" alt="" (click)="showVideo($event, 10)">
+      <img src="../../img/5.jpg" alt="" (click)="showVideo($event, 11)">
+      <img src="../../img/1.jpg" alt="" (click)="showVideo($event, 12)">
+      <img src="../../img/lark15.jpg" alt="" (click)="showVideo($event, 22)">
+    </div>
+    <div class="column">
+      <img src="../../img/gif.gif" alt="" (click)="openFolder(1)">
+      <img src="../../img/20203.jpg" alt="" (click)="showVideo($event, 13)">
+      <img src="../../img/22.jpg" alt="" (click)="showVideo($event, 14)">
+      <img src="../../img/lark10.jpg" alt="" (click)="showVideo($event, 15)">
+      <img src="../../img/lark6.jpg" alt="" routerLink="/gallery/1">
+      <img src="../../img/lark11.jpg" alt="" routerLink="/gallery/3">
+    </div>
+    <div class="column">
+      <img src="../../img/20208.jpg" alt="" (click)="showVideo($event, 38)">
+      <img src="../../img/20207.jpg" alt="" (click)="showVideo($event, 37)">
+      <img src="../../img/20201.jpg" alt="" (click)="showVideo($event, 3)">
+      <img src="../../img/lark13.jpg" alt="" (click)="showVideo($event, 19)">
+      <img src="../../img/lark9.jpg" alt="" (click)="showVideo($event, 20)">
+      <img src="../../img/lark4.jpg" alt="" routerLink="/gallery/0">
+      <img src="../../img/lark17.jpg" alt="" (click)="showVideo($event, 34)">
+    </div>
+  </div>
+  <div class="row row0" *ngIf="folderId === 0">
+    <i class="fas fa-arrow-left" (click)="openFolder(null)"></i>
+    <img src="../../img/3.jpg" alt="" (click)="showVideo($event, 25)">
+    <img src="../../img/4.jpg" alt="" (click)="showVideo($event, 26)">
+    <img src="../../img/4.5.jpg" alt="" (click)="showVideo($event, 27)">
+    <img src="../../img/8.jpg" alt="" (click)="showVideo($event, 28)">
+    <img src="../../img/20205.jpg" alt="" (click)="showVideo($event, 35)">
+    <img src="../../img/20206.jpg" alt="" (click)="showVideo($event, 36)">
+  </div>
+  <div class="row row1" *ngIf="folderId === 1">
+    <i class="fas fa-arrow-left" (click)="openFolder(null)"></i>
+    <img src="../../img/12.jpg" alt="" (click)="showVideo($event, 29)">
+    <img src="../../img/13.jpg" alt="" (click)="showVideo($event, 30)">
+    <img src="../../img/14.jpg" alt="" (click)="showVideo($event, 31)">
+    <img src="../../img/15.jpg" alt="" (click)="showVideo($event, 32)">
+    <img src="../../img/16.jpg" alt="" (click)="showVideo($event, 33)">
+  </div>
+</div>

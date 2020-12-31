@@ -1,0 +1,164 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 99%;
+}
+
+.videoColumn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+}
+
+iframe {
+  margin: 0;
+  width: 640px;
+}
+
+i {
+  font-size: 30px;
+  height: 40px;
+  margin-left: 10px;
+}
+
+i:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.fa-arrow-left {
+  margin-top: 10px;
+}
+
+.columns {
+  display: flex;
+  margin: auto;
+  width: 90%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  width: 25%;
+  margin: 5px;
+}
+
+.row1 {
+  display: flex;
+  flex-direction: row;
+  height: 40%;
+  margin: auto;
+  justify-content: center;
+}
+
+.row1 img {
+  width: 15%;
+}
+
+.row0 {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  margin: auto;
+  justify-content: center;
+}
+
+.row0 img {
+  width: 13%;
+  object-fit: cover;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  filter: opacity(0.7);
+  margin: 5px;
+}
+
+img:hover{
+  filter: opacity(1);
+  transition: 1s;
+}
+
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .videoColumn {
+    flex-direction: row;
+    width: 110%;
+    height: 100px;
+    justify-content: center;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  .columns {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .column {
+    width: 100%;
+    margin: auto;
+  }
+  
+  img {
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  iframe {
+    margin: 0;
+    width: 440px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    height: 40%;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+  }
+
+  .row .videoColumn {
+    width: 60%;
+  }
+
+  .row img {
+    width: 80%;
+  }
+
+  .row0 {
+    height: auto;
+  }
+
+  .row0 img {
+    object-fit: fill;
+
+  }
+}
+
+@media only screen and (max-width: 330px) {
+
+  .videoColumn {
+    width: 80%;
+  }
+
+  .wrapper {
+    width: 320px;
+  }
+
+  iframe {
+    margin: 0;
+    width: 260px;
+  }
+
+}
