@@ -1,67 +1,86 @@
 <div class="wrapper">
-  <div ng-show="show" class="videoColumn" [ngStyle]="{'height': hiddenHeight, 'transition': 'height 1s'}">
-    <iframe width="100%" [ngStyle]="{'max-height': hiddenHeight ,'transition': 'max-height 1s'}" [src]="videoUrl"
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <i class="fa fa-times" [ngStyle]="{'opacity': hiddenButton}" (click)="showVideo($event, null)"></i>
+  <div
+    ng-show="show"
+    class="videoColumn"
+    [ngStyle]="
+      folderId === null
+        ? { height: hiddenHeight, transition: 'height 1.5s', 'flex-direction': 'column' }
+        : { height: hiddenHeight, transition: 'height 1.5s', 'flex-direction': 'column' }
+    "
+  >
+    <i *ngIf="folderId !== null" class="fas fa-arrow-left" routerLink="/blog"></i>
+    <div *ngIf="show" class="closeButtonContainer">
+      <i class="fa fa-times" [ngStyle]="{ opacity: hiddenButton }" (click)="showVideo($event, null)"></i>
+    </div>
+    <iframe
+      width="100%"
+      [ngStyle]="{ height: hiddenHeight, transition: 'height 1.5s' }"
+      [src]="videoUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
   </div>
-  <div class="columns" [ngStyle]="{'transform': translateValue, 'transition': timer}" *ngIf="folderId === null">
-    <div class="column">
-      <img src="../../img/20.jpg" alt="" (click)="showVideo($event, 0)">
-      <img src="../../img/20209.jpg" alt="" (click)="showVideo($event, 39)">
-      <img src="../../img/20204.jpg" alt="" (click)="showVideo($event, 18)">
-      <img src="../../img/23.jpg" alt="" (click)="showVideo($event, 1)">
-      <img src="../../img/19.jpg" alt="" (click)="showVideo($event, 2)">
-      <img src="../../img/6.jpg" alt="" (click)="showVideo($event, 4)">
+  <div class="columns" *ngIf="folderId === null">
+    <div class="column column0">
+      <img src="../../img/featurewerk.gif" alt="" class="feature-gif" routerLink="/bts" />
+      <img src="../../img/photo.gif" alt="" class="photo-gif" routerLink="/gallery" />
     </div>
     <div class="column">
-      <img src="../../img/weddinggifv3.gif" alt="" (click)="openFolder(0)">
-      <img src="../../img/20202.jpg" alt="" (click)="showVideo($event, 6)">
-      <img src="../../img/lark2.jpg" alt="" (click)="showVideo($event, 7)">
-      <img src="../../img/lark3.jpg" alt="" (click)="showVideo($event, 8)">
-      <img src="../../img/lark8.jpg" alt="" routerLink="/gallery/2">
-      <img src="../../img/2.jpg" alt="" (click)="showVideo($event, 16)">
+      <img src="../../img/commercial.gif" alt="" class="commercial-gif" routerLink="/commercial" />
+      <img src="../../img/music.gif" alt="" class="music-gif" routerLink="/music" />
     </div>
-    <div class="column">
-      <img src="../../img/lark5.jpg" alt="" (click)="showVideo($event, 9)">
-      <img src="../../img/21.jpg" alt="" (click)="showVideo($event, 17)">
-      <img src="../../img/11.jpg" alt="" (click)="showVideo($event, 10)">
-      <img src="../../img/5.jpg" alt="" (click)="showVideo($event, 11)">
-      <img src="../../img/1.jpg" alt="" (click)="showVideo($event, 12)">
-      <img src="../../img/lark15.jpg" alt="" (click)="showVideo($event, 22)">
-    </div>
-    <div class="column">
-      <img src="../../img/gif.gif" alt="" (click)="openFolder(1)">
-      <img src="../../img/20203.jpg" alt="" (click)="showVideo($event, 13)">
-      <img src="../../img/22.jpg" alt="" (click)="showVideo($event, 14)">
-      <img src="../../img/lark10.jpg" alt="" (click)="showVideo($event, 15)">
-      <img src="../../img/lark6.jpg" alt="" routerLink="/gallery/1">
-      <img src="../../img/lark11.jpg" alt="" routerLink="/gallery/3">
-    </div>
-    <div class="column">
-      <img src="../../img/20208.jpg" alt="" (click)="showVideo($event, 38)">
-      <img src="../../img/20207.jpg" alt="" (click)="showVideo($event, 37)">
-      <img src="../../img/20201.jpg" alt="" (click)="showVideo($event, 3)">
-      <img src="../../img/lark13.jpg" alt="" (click)="showVideo($event, 19)">
-      <img src="../../img/lark9.jpg" alt="" (click)="showVideo($event, 20)">
-      <img src="../../img/lark4.jpg" alt="" routerLink="/gallery/0">
-      <img src="../../img/lark17.jpg" alt="" (click)="showVideo($event, 34)">
+    <div class="column lastColumn">
+      <img src="../../img/tvc.gif" alt="" class="tvc-gif" routerLink="/tvc" />
+      <img src="../../img/wedding.gif" alt="" class="wedding-gif" routerLink="/wedding" />
     </div>
   </div>
-  <div class="row row0" *ngIf="folderId === 0">
-    <i class="fas fa-arrow-left" (click)="openFolder(null)"></i>
-    <img src="../../img/3.jpg" alt="" (click)="showVideo($event, 25)">
-    <img src="../../img/4.jpg" alt="" (click)="showVideo($event, 26)">
-    <img src="../../img/4.5.jpg" alt="" (click)="showVideo($event, 27)">
-    <img src="../../img/8.jpg" alt="" (click)="showVideo($event, 28)">
-    <img src="../../img/20205.jpg" alt="" (click)="showVideo($event, 35)">
-    <img src="../../img/20206.jpg" alt="" (click)="showVideo($event, 36)">
+  <div class="row row0" *ngIf="folderId === 1">
+    <img src="../../img/wedding/wedding_1.jpg" alt="" (click)="showVideo($event, 'wedding', 0)" />
+    <img src="../../img/wedding/wedding_2.jpg" alt="" (click)="showVideo($event, 'wedding', 1)" />
+    <img src="../../img/wedding/wedding_3.jpg" alt="" (click)="showVideo($event, 'wedding', 2)" />
+    <img src="../../img/wedding/wedding_4.jpg" alt="" (click)="showVideo($event, 'wedding', 3)" />
+    <img src="../../img/wedding/wedding_5.jpg" alt="" (click)="showVideo($event, 'wedding', 4)" />
+    <img src="../../img/wedding/wedding_6.jpg" alt="" (click)="showVideo($event, 'wedding', 5)" />
+    <img src="../../img/wedding/wedding_7.jpg" alt="" (click)="showVideo($event, 'wedding', 6)" />
+    <img src="../../img/wedding/wedding_8.jpg" alt="" (click)="showVideo($event, 'wedding', 7)" />
+    <img src="../../img/wedding/wedding_9.gif" alt="" (click)="showVideo($event, 'wedding', 8)" />
+    <img src="../../img/wedding/wedding_10.gif" alt="" (click)="showVideo($event, 'wedding', 9)" />
+    <img src="../../img/wedding/wedding_11.jpg" alt="" (click)="showVideo($event, 'wedding', 10)" />
+    <img src="../../img/wedding/wedding_12.jpg" alt="" (click)="showVideo($event, 'wedding', 11)" />
   </div>
-  <div class="row row1" *ngIf="folderId === 1">
-    <i class="fas fa-arrow-left" (click)="openFolder(null)"></i>
-    <img src="../../img/12.jpg" alt="" (click)="showVideo($event, 29)">
-    <img src="../../img/13.jpg" alt="" (click)="showVideo($event, 30)">
-    <img src="../../img/14.jpg" alt="" (click)="showVideo($event, 31)">
-    <img src="../../img/15.jpg" alt="" (click)="showVideo($event, 32)">
-    <img src="../../img/16.jpg" alt="" (click)="showVideo($event, 33)">
+  <div class="row row1" *ngIf="folderId === 2">
+    <img src="../../img/tvc/tvc_1.jpg" alt="" (click)="showVideo($event, 'tvc', 0)" />
+    <img src="../../img/tvc/tvc_2.jpg" alt="" (click)="showVideo($event, 'tvc', 1)" />
+    <img src="../../img/tvc/tvc_3.jpg" alt="" (click)="showVideo($event, 'tvc', 2)" />
+    <img src="../../img/tvc/tvc_4.jpg" alt="" (click)="showVideo($event, 'tvc', 3)" />
+    <img src="../../img/tvc/tvc_5.jpg" alt="" (click)="showVideo($event, 'tvc', 4)" />
+    <img src="../../img/tvc/tvc_6.jpg" alt="" (click)="showVideo($event, 'tvc', 5)" />
+  </div>
+  <div class="row row1" *ngIf="folderId === 3">
+    <img src="../../img/commercial/commercial_1.jpg" alt="" (click)="showVideo($event, 'commercial', 0)" />
+    <img src="../../img/commercial/commercial_2.jpg" alt="" (click)="showVideo($event, 'commercial', 1)" />
+    <img src="../../img/commercial/commercial_3.jpg" alt="" (click)="showVideo($event, 'commercial', 5)" />
+    <img src="../../img/commercial/commercial_4.jpg" alt="" (click)="showVideo($event, 'commercial', 4)" />
+    <img src="../../img/commercial/commercial_5.jpg" alt="" (click)="showVideo($event, 'commercial', 2)" />
+    <img src="../../img/commercial/commercial_6.jpg" alt="" (click)="showVideo($event, 'commercial', 3)" />
+    <img src="../../img/commercial/commercial_7.jpg" alt="" (click)="showVideo($event, 'commercial', 6)" />
+  </div>
+  <div class="row row1" *ngIf="folderId === 4">
+    <img src="../../img/bts/bts_1.jpg" alt="" (click)="showVideo($event, 'bts', 0)" />
+    <img src="../../img/bts/bts_2.jpg" alt="" (click)="showVideo($event, 'bts', 1)" />
+    <img src="../../img/bts/bts_3.jpg" alt="" (click)="showVideo($event, 'bts', 2)" />
+    <img src="../../img/bts/bts_4.jpg" alt="" (click)="showVideo($event, 'bts', 3)" />
+    <img src="../../img/bts/bts_5.jpg" alt="" (click)="showVideo($event, 'bts', 4)" />
+    <img src="../../img/bts/bts_6.jpg" alt="" (click)="showVideo($event, 'bts', 5)" />
+    <img src="../../img/bts/bts_7.jpg" alt="" (click)="openLink('bts', 6)" />
+  </div>
+  <div class="row row1" *ngIf="folderId === 5">
+    <img src="../../img/music/MUSIC_1.jpg" alt="" (click)="showVideo($event, 'music', 0)" />
+    <img src="../../img/music/MUSIC_2.jpg" alt="" (click)="showVideo($event, 'music', 1)" />
+    <img src="../../img/music/MUSIC_3.jpg" alt="" (click)="showVideo($event, 'music', 2)" />
+    <img src="../../img/music/MUSIC_4.jpg" alt="" (click)="showVideo($event, 'music', 3)" />
+    <img src="../../img/music/MUSIC_5.jpg" alt="" (click)="showVideo($event, 'music', 4)" />
+    <img src="../../img/music/MUSIC_6.jpg" alt="" (click)="showVideo($event, 'music', 5)" />
   </div>
 </div>

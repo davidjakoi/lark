@@ -1,25 +1,18 @@
-import { Component } from '@angular/core';
-import { RouterOutlet} from '@angular/router';
-import { slideInAnimation } from './animations';
+import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+import { slideInAnimation } from "./animations";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.css"],
   animations: [
     slideInAnimation
     // animation triggers go here
   ]
 })
 export class AppComponent {
-  title = 'lark';
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
-  }
-  isSlideShow;
-  receiveBoolean($event){
-    console.log('fssasdadsa');
-    this.isSlideShow = $event;
-    console.log(this.isSlideShow);
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData["animation"];
   }
 }

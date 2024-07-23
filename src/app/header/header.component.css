@@ -1,49 +1,52 @@
 .wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: auto;
-}
-
-div {
-  text-align: center;
-  text-transform: uppercase;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 25px auto auto;
+  width: 88%;
 }
 
 img {
-  width: 12%;
-  height: auto;
+  width: 150px;
+  height: 47px;
 }
 
 .links {
+  width: 150px;
   display: flex;
   flex-direction: row;
-  align-content: space-between;
-  color: #ba2c2c;
-  width: 100%;
-  text-align: center;
-  justify-content: center;
+  color: gray;
+  justify-content: space-between;
+  align-items: end;
 }
 
-h2 {
-  margin-left: 40px;
-  margin-right: 40px;
-  text-transform: uppercase;
+a {
   cursor: pointer;
-  justify-content: center;
   font-family: 'Pathway Gothic One', sans-serif;
   font-size: 25px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px;
+  padding-bottom: 0px;
+  padding-right: 0px;
 }
 
-h2:hover{
+a:hover{
   text-decoration: none;
 }
 
-h2:focus,h2:active{
+a:focus,a:active,a:visited {
   outline: none;
+  text-decoration: none;
+  color: inherit;
 }
 
-img:focus,h2:active{
+a:-webkit-any-link {
+  color: inherit;
+}
+
+img:focus,a:active{
   outline: none;
 }
 
@@ -52,11 +55,8 @@ img:hover {
 }
 
 .isActive {
-  color: #2b17b3;
-}
-
-.logo {
-  margin-top: 30px;
+  color: black !important;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -72,7 +72,7 @@ img:hover {
     height: auto;
   }
 
-  h2 {
+  a {
     margin-left: 25px;
     margin-right: 25px;
   }

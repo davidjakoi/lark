@@ -1,9 +1,14 @@
-<div class="wrapper" *ngIf="!isSlideShow">
-    <img *ngFor="let gallery of images[index], let i=index" class="galleryImages" src="../../../img/gallery{{index}}/{{i}}.jpg" alt="" (click)="openImage(i)">
+<div class="wrapper" [ngStyle]="{ display: !isSlideShow ? 'grid' : 'none' }">
+  <img *ngFor="let gallery of images; let i = index" class="galleryImages" src="../../../img/new-gallery/gallery-{{ i }}.jpg" alt="" (click)="openImage(i)" />
 </div>
 <div class="slideShow" *ngIf="isSlideShow">
-    <i class="fas fa-arrow-left" (click)="previous(i)" *ngIf="clickedIndex>0"></i>
-    <img src="../../../img/gallery{{index}}/{{clickedIndex}}.jpg" alt="" class="slideShowImage">
-    <i class="fas fa-arrow-right" (click)="next(i)" *ngIf="clickedIndex<(images[index].length-2)"></i>
-    <button class="closeButton" (click)="close()">X</button>
+  <div class="galleryHeader">
+    <i class="fas fa-th-large" (click)="close()"></i>
+    <i class="fas fa-times" routerLink="/blog"></i>
+  </div>
+  <div class="slideShowImageContainer">
+    <i class="fas fa-arrow-left arrows" (click)="previous(i)"></i>
+    <img src="../../../img/new-gallery/gallery-{{ clickedIndex }}.jpg" alt="" class="slideShowImage" />
+    <i class="fas fa-arrow-right arrows" (click)="next(i)"></i>
+  </div>
 </div>
